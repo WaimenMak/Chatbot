@@ -1,0 +1,19 @@
+version: '3'
+services:
+  westworld:
+    # image: chatbot
+    build: .
+    environment:
+      - ACCESS_TOKEN=5160604243:AAE6Qs-_21_3325ONlKIpO-gybcsYQzaqlA
+      - HOST=redis
+      - PASSWORD=123456
+      - REDISPORT=6380
+    command: python main.py
+    depends_on:
+      -redis
+  redis:
+    image: redis
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    command: ["/usr/local/etc/redis/redis.conf"]
+
