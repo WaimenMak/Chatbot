@@ -4,9 +4,9 @@
 
 Goup ID: 32
 
-Yuwei Tang   21442946
+Yuwei Tang   21442946 letokanoce
 
-Weiming Mai  21422885
+Weiming Mai  21422885 WaimenMak
 
 ## Chatbot Feature Introduction
 
