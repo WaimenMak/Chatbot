@@ -4,7 +4,7 @@
 
 Goup ID: 32
 
-Yuwei Tang    21442946
+Yuwei Tang   21442946
 
 Weiming Mai  21422885
 
@@ -38,13 +38,16 @@ The following figure shows the structure of the database:
 
 <img src="README.assets/image-20220421205350048.png" alt="image-20220421205350048" style="zoom: 33%;" />
 
+The database stores the json file which has been queried from the api. The structure of the database is showed above.
 ### Function 
 
 The bot would contain following command functions:
 
 - /start: The bot will response with greeting and the user's last name. 
-- /help : 
-- /get_my_id:
+- /start : Displaying info of the initial instructions
+- /help : Some detailed  instrctions
+- /get_own_telegram_id : Get the telegram id of ourselvs.
+- Sending@ : The prefix of the sharing command.
 
 
 
