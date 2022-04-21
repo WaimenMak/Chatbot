@@ -1,0 +1,65 @@
+az container create --resource-group myResourceGroup --name tvbot--image westworldbot.azurecr.io/tvbot:v1 --cpu 1 --memory 1 --registry-login-server westworldbot.azurecr.io --registry-username max --registry-password 123456 --ip-address Public --dns-name-label tvbotdns --ports 80
+
+5398859275:AAH5X0dOUBOspdDvhcVUYoM93TRJu-e8m2g  bot1
+5160604243:AAE6Qs-_21_3325ONlKIpO-gybcsYQzaqlA  bot2
+
+
+acrname:westworldbot
+
+
+
+docker build -t tvbot2 .
+
+az group create --name tvresource --location eastus  ##资源
+
+az acr create --resource-group tvresource --name westworldbot2 --sku Basic     ##注册        
+
+az acr update -n <acrName> --admin-enabled true
+
+az acr show --name mycontainerregistry082 --query loginServer --output table   #显示注册表完整名称
+
+docker tag tvbot2 westworldbot2.azurecr.io/tvbot2:v1
+
+az acr login --name <acrName>
+
+docker push westworldbot2.azurecr.io/tvbot2:v1
+
+az container create --resource-group tvresource --name tvbot2 --image  westworldbot2.azurecr.io/tvbot2:v1 --cpu 1 --memory 1
+
+az container show --resource-group tvresource --name tvbot2 --query instanceView.state
+
+az container logs --resource-group tvresource --name tvbot2
+
+##debug
+docker run -d --name mycontainer python /bin/bash -c "tail -f /dev/null"
+
+docker exec -it mycontainer bash
+
+##docker compose
+
+az group create --name westworldresource --location eastus
+
+az acr create --resource-group westworldresource --name tvshow --sku Basic
+
+
+## after create two local images tvbot and tvbot2
+docker tag tvbot tvshow.azurecr.io/tvbot:v1
+
+docker tag tvbot1 tvshow.azurecr.io/tvbot1:v1
+
+##login and push
+az acr login --name tvshow
+
+docker push tvshow.azurecr.io/tvbot:v1
+
+docker push tvshow.azurecr.io/tvbot1:v1
+
+##local test:
+docker-compose up --build -d   ##build according to docker-compose.yml
+take service down
+docker-compose down
+
+#push docker compose 
+docker-compose push
+
+az acr repository show --name tvshow --repository tvbot  #check the pushed repository
