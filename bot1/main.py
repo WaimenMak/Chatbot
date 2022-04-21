@@ -101,7 +101,6 @@ def button(update, context):
     images = serial_description.get("image")
     display = images.get("medium")
     time = serial_description.get("premiered")
-
     if (genres is not empty) and (display):
         genres = ' '.join([str(elem) for elem in genres])
         query.edit_message_text(text="Show:{}\n Laguage:{}\n Type:{}\n Time:{}\n Genres:{}\n Images:{}\n".format(
@@ -124,7 +123,6 @@ def button(update, context):
 def share_image(update, context):
     serials_all = ref.get()
     serials = []
-    print("ALL SERIAL HJJJJ", serials_all)
     for show_searched in serials_all:
         serials.append(show_searched["show"])
 
