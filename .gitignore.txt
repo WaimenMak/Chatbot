@@ -1,2 +1,3 @@
+*.ini
 bot1/config.ini
 bot2/config.ini
