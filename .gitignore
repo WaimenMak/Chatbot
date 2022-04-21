@@ -1,3 +1,5 @@
 *.ini
+/.idea
+/__pycache__
 bot1/config.ini
 bot2/config.ini
