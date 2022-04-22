@@ -63,3 +63,6 @@ docker-compose down
 docker-compose push
 
 az acr repository show --name tvshow --repository tvbot  #check the pushed repository
+
+## create context
+docker context create aci westworldbot
