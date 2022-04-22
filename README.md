@@ -10,6 +10,8 @@ Weiming Mai  21422885 https://github.com/WaimenMak
 
 Project Repository:  https://github.com/WaimenMak/Chatbot
 
+Chat Bot ID: bot1: westworld;  bot2: hdjjdg_bot
+
 ### Function 
 
 The bot would contain following command functions:
